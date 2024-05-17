@@ -56,7 +56,7 @@ app.post("/", ensureAuthenticated(), async (c) => {
     .filter((s) => s !== "");
   const candidates = candidateNames.map((candidateName) => ({
     candidateName,
-    scheduleId: schedule.scheduleId,
+    scheduleId,
   }));
   await prisma.candidate.createMany({
     data: candidates,
